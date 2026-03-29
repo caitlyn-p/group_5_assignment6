@@ -9,6 +9,8 @@ public class Sparkler
     //display varibales
     private Texture2D sprite;
     private Vector2 _position;
+    
+    //update varibales
     private Vector2 _velocity;
     private Vector2 _acceleration;
     
