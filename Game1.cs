@@ -96,6 +96,8 @@ public class Game1 : Game
             part.Draw(_spriteBatch);
         }
 
+        _spriteBatch.End();
+
         base.Draw(gameTime);
     }
 }
