@@ -28,18 +28,12 @@ public class Sparkler
     public Sparkler(Texture2D texture, float x, float y)
     {
         sprite = texture;
-        
         _position = new Vector2(x, y);
-
+        
         _acceleration = Vector2.Zero;
         _mass = 1f;
-        
         _life = 60;
-
-        _velocity = new Vector2(
-            rand.Next(-10, 11) / 10f,
-            rand.Next(-40, -15) / 10f
-        );
+        _velocity = new Vector2(rand.Next(-10, 11) / 10f, rand.Next(-40, -15) / 10f);
 
         _oscillationStrength = 0.4f + (float)rand.NextDouble() * 3f;
         _oscillationSpeed = 6f + (float)rand.NextDouble() * 6f;
