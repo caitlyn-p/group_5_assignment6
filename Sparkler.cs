@@ -46,13 +46,13 @@ public class Sparkler
         _acceleration += force / _mass;
     }
 
-    public void Update()
+    public void Update(GameTime gameTime)
     {
-        _time += 0.1f;//psuedo time. time increases by 1/10 every frame
+        _time +=(float)gameTime.ElapsedGameTime.TotalSeconds * 6f;//the sped up time makes osciallation more noticeable
         
         //gravity force
         Vector2 gravity = new Vector2(0, 0.15f * _mass);
-        ApplyForce(gravity);
+        ApplyForce(gravity); 
         
         // horizontal oscillation force
         float oscillationX = (float)Math.Sin(_time * _oscillationSpeed) * _oscillationStrength;

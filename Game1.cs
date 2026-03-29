@@ -64,7 +64,7 @@ public class Game1 : Game
         //update all existing particles
         for (int i = _particles.Count - 1; i >= 0; i--)
         {
-            _particles[i].Update();
+            _particles[i].Update(gameTime);
             //remove particles after lifespan is ended
             if (!_particles[i].IsAlive)
                 _particles.RemoveAt(i);
