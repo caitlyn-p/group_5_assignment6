@@ -46,10 +46,10 @@ public class Game1 : Game
         _emitterX = 550f; 
         _emitterY = 400f;
 
-        base.Initialize();
-        
         //list of particles for fountain firework
         _fountainParticles = new List<FountainParticle>();
+        
+        base.Initialize();
 
     }
 
@@ -62,10 +62,13 @@ public class Game1 : Game
         _wand = Content.Load<Texture2D>("wand");
         
         //using circles for fountain firework
-        _fountainParticle = CreateCircleTexture(12);
+        _fountainParticle = CreateCircleTexture(8);
 
         //spawning in particles on bottom left of window, adjusted to match caitlyn's buffer size
-        Vector2 spawnPos = new Vector2(400, 300);
+        Vector2 spawnPos = new Vector2(
+            150,
+            _graphics.PreferredBackBufferHeight - 40
+        );
         
         //adding in particles to list for fountain
         _fountainParticles = new List<FountainParticle>();
@@ -179,8 +182,9 @@ public class Game1 : Game
         //drawing fountain particles
         foreach (FountainParticle p in _fountainParticles)
         {
-            p.Draw(_spriteBatch);
+            p.display(_spriteBatch);
         }
+        
         
         _spriteBatch.End();
         

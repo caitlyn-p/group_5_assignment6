@@ -12,14 +12,14 @@ public class FountainParticle
 
     private Texture2D texture;
 
-    private float gravity = 0.1f;
+    private float gravity = 0.15f;
 
     private float life;
     private float maxLife;
 
     private Color color;
 
-    private static Random rand = new Random();
+    private Random rand = new Random();
     
     public FountainParticle(Texture2D tex, Vector2 spawn)
     {
@@ -35,8 +35,7 @@ public class FountainParticle
 
         // initial upward launch force
         float vx = (float)(rand.NextDouble() * 2 - 1);
-
-        float vy = (float)(rand.NextDouble() * -8 - 4);
+        float vy = (float)(rand.NextDouble() * -6 - 2);
 
         velocity = new Vector2(vx, vy);
 
@@ -67,7 +66,7 @@ public class FountainParticle
             Reset();
     }
 
-    public void Draw(SpriteBatch sb)
+    public void display(SpriteBatch sb)
     {
         sb.Draw(
             texture,
@@ -76,7 +75,7 @@ public class FountainParticle
             color,
             0f,
             new Vector2(texture.Width / 2f, texture.Height / 2f),
-            1.0f,
+            0.8f,
             SpriteEffects.None,
             0f
         );
