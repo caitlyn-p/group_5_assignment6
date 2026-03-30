@@ -65,11 +65,7 @@ public class Game1 : Game
         _fountainParticle = CreateCircleTexture(12);
 
         //spawning in particles on bottom left of window, adjusted to match caitlyn's buffer size
-        Vector2 spawnPos =
-            new Vector2(
-                _graphics.PreferredBackBufferWidth * 0.08f,
-                _graphics.PreferredBackBufferHeight * 0.92f
-            );
+        Vector2 spawnPos = new Vector2(400, 300);
         
         //adding in particles to list for fountain
         _fountainParticles = new List<FountainParticle>();
@@ -150,7 +146,8 @@ public class Game1 : Game
             {
                 //applying 2 forces to the particles
                 p.ApplyGravity();
-                p.Update(_graphics.PreferredBackBufferHeight);            }
+                p.Update();
+            }
         }
 
         base.Update(gameTime);
@@ -184,8 +181,9 @@ public class Game1 : Game
         {
             p.Draw(_spriteBatch);
         }
-
+        
         _spriteBatch.End();
+        
 
         base.Draw(gameTime);
     }
